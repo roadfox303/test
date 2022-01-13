@@ -11,8 +11,8 @@ jobs:
     machine:
       image: ubuntu-2004:202010-01
     environment:
-      - FRONT_IMAGE: 'tuimac/web'
-      - APP_IMAGE: 'tuimac/application'
+      - FRONT_IMAGE: 'roadfox303/web'
+      - APP_IMAGE: 'roadfox303/application'
       - CI: ""
     steps:
       - checkout
@@ -62,7 +62,7 @@ jobs:
           name: Push images
           working_directory: docker/prod
           command: |
-            echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin
+            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             set -x
             docker push ${FRONT_IMAGE}
             docker push ${APP_IMAGE}
