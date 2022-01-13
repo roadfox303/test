@@ -1,2 +1,2 @@
-# test
-test
+# react-django
+sample project
